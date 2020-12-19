@@ -1,0 +1,156 @@
+<html>
+<head>
+<title>Final Project</title>
+<style>
+body
+  {
+    color:white;
+    background-color: black;
+  }
+h1
+  {
+    width: %50;
+    height: 50px;
+    background-color: black;
+    animation-name: example;
+    animation-duration: 4s;
+    border-radius: 8px;
+  }
+@keyframes example
+  {
+    0%   {background-color: grey;}
+    25%  {background-color: black;}
+    50%  {background-color: grey;}
+    100% {background-color: black;}
+  }
+  input {
+    background-color: black;
+   color: white;
+   border: 2px solid #99ff99;
+   border-radius: 8px;
+   width: 25%px;
+ }
+  input:hover{
+    border: 2px solid red;
+  }
+
+ img
+ {
+  border-radius: 8px;
+  hight:300px;
+  width:300px;
+}
+
+span
+{
+  color: white;
+}
+</style>
+
+<script>
+
+var score = 0;
+var questionCount = 0;
+
+function hide()
+{
+  document.getElementById('reset').style.visibility = "hidden";
+}
+
+  function gradeQuiz()
+  {
+    var table = " ";
+    var ans = document.getElementById('answer').value;
+    if(questionCount == 0)
+    {
+      ans1 = document.getElementById('answer').value;
+      if(ans == "stog")
+      {
+        score = score + 1;
+      }
+      document.getElementById("picture").innerHTML = "<img src = 'axilotil.png'>";
+    }
+    if(questionCount == 1)
+    {
+      ans2 = document.getElementById('answer').value;
+      if(ans == "axolotl")
+      {
+        score = score + 1;
+      }
+      document.getElementById("picture").innerHTML = "<img src = 'chese.jpg'>";
+    }
+    if(questionCount == 2)
+    {
+      ans3 = document.getElementById('answer').value;
+      if(ans == "chese")
+      {
+        score = score + 1;
+      }
+      document.getElementById("picture").innerHTML = "<img src = 'hum.PNG'>";
+    }
+    if(questionCount == 3)
+    {
+      ans4 = document.getElementById('answer').value;
+      if(ans == "hum")
+      {
+        score = score + 1;
+      }
+      document.getElementById("picture").innerHTML = "<img src = 'tis me.PNG'>";
+    }
+    if(questionCount == 4)
+    {
+      ans5 = document.getElementById('answer').value;
+      if(ans == "tis me")
+      {
+        score = score + 1;
+      }
+      end();
+    }
+    questionCount = questionCount + 1;
+    table = table + "The answer to pic 1 was tis me, your answer was: " + ans1 + "<br>" + "<br>";
+    table = table + "The answer to pic 2 was tis me, your answer was: " + ans2 + "<br>" + "<br>";
+    table = table + "The answer to pic 3 was tis me, your answer was: " + ans3 + "<br>" + "<br>";
+    table = table + "The answer to pic 4 was tis me, your answer was: " + ans4 + "<br>" + "<br>";
+    table = table + "The answer to pic 5 was tis me, your answer was: " + ans5 + "<br>" + "<br>";
+    document.getElementById('table').innerHTML = table + "<br>";
+  }
+
+  function end()
+  {
+    document.getElementById("reset").style.visibility = "visible";
+    document.getElementById('picture').style.visibility = "hidden";
+    document.getElementById('answer').style.visibility = "hidden";
+    document.getElementById('next').style.visibility = "hidden";
+    document.getElementById('directions').style.visibility = "hidden";
+    document.getElementById('ending').style.visibility = "visible";
+    document.getElementById('ending').innerHTML = "score:" + score + "/5";
+  }
+
+  function reset()
+  {
+    location.reload();
+  }
+
+
+</script>
+<center>
+<body onload = "hide()">
+</head>
+<h1> Wat is dis , quiz</h1>
+<hr>
+<p id = "directions"> tell me wat dis is</p>
+<br>
+<span id = "picture"><img src = "stog.jpg"></span>
+<br><br><br>
+<span id = "table" onload = "hide()"></span>
+<span id = "ending" onload = "hide()"></span>
+<input type = "text" id = "answer">
+<input type = "button" value = "oki" onclick = "gradeQuiz()" id = "next">
+<br>
+<br>
+<input type = "button" value = "restart?" onload = "hide()" onclick = "reset()" id = "reset">
+<hr>
+</body>
+</center>
+
+</html>
